@@ -23,7 +23,7 @@ export default function Contact() {
                 <FiMail className="text-blue-500 flex-shrink-0" size={16} />
                 <div>
                   <a href="mailto:ksavali3@asu.edu" className="hover:underline font-medium">ksavali3@asu.edu</a>
-                  <span className="text-xs text-slate-400 block">(ASU ID / Primary Email)</span>
+                  <span className="text-xs text-slate-400 block">(ASU ID: 1234414235 / Secondary Email: savaliaklim@gmail.com)</span>
                 </div>
               </div>
 
