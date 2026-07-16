@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiPlay, FiFileText, FiCamera } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiPlay, FiFileText } from 'react-icons/fi';
+
+// 1. Import your local images from the assets folder
+import bakeryImg from '../../assets/bakery.png';
+import vrTourImg from '../../assets/vr-tour.png';
+import ev3SideImg from '../../assets/robotic-car-side.png';
+import ev3TopImg from '../../assets/robotic-car-top.png';
+import veginationsImg from '../../assets/veginations.png';
 
 interface Project {
   title: string;
@@ -11,7 +18,7 @@ interface Project {
   bullets: string[];
   tags: string[];
   category: 'Web' | 'AR/VR' | 'Robotics';
-  imageKey: string; 
+  imageSrc?: string;          // Added to hold regular single images
   hasMultipleImages?: boolean; 
   github?: string;  
   demo?: string;   
@@ -19,78 +26,77 @@ interface Project {
   docs?: string;   
 }
 
-const projectsData: Project[] = [
-  {
-    title: "20Twenty7.8 Dessert Studio",
-    role: "Software Developer",
-    timeline: "July 2026 – Present",
-    association: "Client Project (In Progress)",
-    category: "Web",
-    tags: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel", "Git/GitHub"],
-    imageKey: "bakery",
-    description: "Full-stack web application built for a local bakery.",
-    bullets: [
-      "Developing a production-ready, full-stack e-commerce platform for a real small-business client, including product catalog browsing, shopping cart, and secure online ordering.",
-      "Designing and integrating a PostgreSQL database with Supabase to manage products, customer accounts, and online orders.",
-      "Developing an admin dashboard for inventory management, pricing updates, and customer order tracking, reducing manual order processing.",
-      "Designed reusable, responsive React components with TypeScript and Tailwind CSS for a scalable, mobile-friendly interface."
-    ],
-    github: "https://github.com/KlimSavalia06", 
-    demo: "https://your-bakery-demo-link.vercel.app" 
-  },
-  {
-    title: "FSE AR/VR Tour",
-    role: "AR/VR Developer",
-    timeline: "Aug 2025 – Dec 2025",
-    association: "Arizona State University",
-    category: "AR/VR",
-    tags: ["Unity", "C#", "AR/VR Development", "Educational Tech"],
-    imageKey: "vr-tour",
-    description: "Developed immersive AR/VR learning experiences using Unity and C# to integrate interactive technology into the FSE100 engineering curriculum.",
-    bullets: [
-      "Designed and implemented user-centered features that improved usability, engagement, and the overall learning experience for students.",
-      "Built and tested software prototypes through iterative feedback from faculty and users, strengthening problem-solving and product development skills.",
-      "Collaborated with cross-functional student and faculty teams to deliver scalable and innovative educational technology solutions."
-    ],
-    video: "https://docs.google.com/document/d/11gB6cT-rg-Dh4YTQlk2T60lqe9LXNHtOPheHChNaDi0/edit?usp=sharing", 
-  },
-  {
-    title: "Autonomous EV3 Robotic Car",
-    role: "Execution Lead",
-    timeline: "Aug 2025 – Dec 2025",
-    association: "Fulton Schools of Engineering, ASU",
-    category: "Robotics",
-    tags: ["MATLAB", "Robotics", "LEGO EV3 Mindstorms", "Algorithms"],
-    imageKey: "robotic-car",
-    hasMultipleImages: true, 
-    description: "Led the development of a sensor-driven autonomous robotic vehicle using LEGO EV3, enabling object detection and autonomous navigation capabilities.",
-    bullets: [
-      "Programmed control algorithms in MATLAB to process sensor data and execute real-time movement and lifting operations.",
-      "Designed and tested system logic to ensure reliable vehicle performance under project constraints and operational requirements.",
-      "Coordinated project planning and team collaboration using structured documentation and Gantt charts to ensure timely project completion."
-    ],
-    video: "https://docs.google.com/document/d/1OwoNglilbXwctBxkDsuat2hJ3M1clcUoNBqKHbKiIOU/edit?usp=sharing" 
-  },
-  {
-    title: "Veginations Food Delivery Platform",
-    role: "Software Developer",
-    timeline: "Dec 2023 – Mar 2024",
-    association: "Delhi Public School Surat",
-    category: "Web",
-    tags: ["Python", "SQL", "MySQL", "Relational Database"],
-    imageKey: "veginations",
-    description: "Developed a consumer-facing food delivery platform using Python and SQL with secure user authentication and dynamic menu management functionality.",
-    bullets: [
-      "Designed and optimized SQL database queries, improving system performance and reducing load times by 30%.",
-      "Implemented a Python-based \"Lucky Draw\" feature to enhance user engagement and platform interaction.",
-      "Integrated backend logic with database operations to ensure efficient data handling and seamless user experience."
-    ]
-  }
-];
-
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<'All' | 'Web' | 'AR/VR' | 'Robotics'>('All');
   const [ev3View, setEv3View] = useState<'side' | 'top'>('side');
+
+  const projectsData: Project[] = [
+    {
+      title: "20Twenty7.8 Dessert Studio",
+      role: "Software Developer",
+      timeline: "July 2026 – Present",
+      association: "Client Project (In Progress)",
+      category: "Web",
+      tags: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel", "Git/GitHub"],
+      imageSrc: bakeryImg, // <-- Linked here
+      description: "Full-stack web application built for a local bakery.",
+      bullets: [
+        "Developing a production-ready, full-stack e-commerce platform for a real small-business client, including product catalog browsing, shopping cart, and secure online ordering.",
+        "Designing and integrating a PostgreSQL database with Supabase to manage products, customer accounts, and online orders.",
+        "Developing an admin dashboard for inventory management, pricing updates, and customer order tracking, reducing manual order processing.",
+        "Designed reusable, responsive React components with TypeScript and Tailwind CSS for a scalable, mobile-friendly interface."
+      ],
+      github: "https://github.com/KlimSavalia06", 
+      demo: "https://your-bakery-demo-link.vercel.app" 
+    },
+    {
+      title: "FSE AR/VR Tour",
+      role: "AR/VR Developer",
+      timeline: "Aug 2025 – Dec 2025",
+      association: "Arizona State University",
+      category: "AR/VR",
+      tags: ["Unity", "C#", "AR/VR Development", "Educational Tech"],
+      imageSrc: vrTourImg, // <-- Linked here
+      description: "Developed immersive AR/VR learning experiences using Unity and C# to integrate interactive technology into the FSE100 engineering curriculum.",
+      bullets: [
+        "Designed and implemented user-centered features that improved usability, engagement, and the overall learning experience for students.",
+        "Built and tested software prototypes through iterative feedback from faculty and users, strengthening problem-solving and product development skills.",
+        "Collaborated with cross-functional student and faculty teams to deliver scalable and innovative educational technology solutions."
+      ],
+      video: "https://docs.google.com/document/d/11gB6cT-rg-Dh4YTQlk2T60lqe9LXNHtOPheHChNaDi0/edit?usp=sharing", 
+    },
+    {
+      title: "Autonomous EV3 Robotic Car",
+      role: "Execution Lead",
+      timeline: "Aug 2025 – Dec 2025",
+      association: "Fulton Schools of Engineering, ASU",
+      category: "Robotics",
+      tags: ["MATLAB", "Robotics", "LEGO EV3 Mindstorms", "Algorithms"],
+      hasMultipleImages: true, // Uses multi-view toggle setup below
+      description: "Led the development of a sensor-driven autonomous robotic vehicle using LEGO EV3, enabling object detection and autonomous navigation capabilities.",
+      bullets: [
+        "Programmed control algorithms in MATLAB to process sensor data and execute real-time movement and lifting operations.",
+        "Designed and tested system logic to ensure reliable vehicle performance under project constraints and operational requirements.",
+        "Coordinated project planning and team collaboration using structured documentation and Gantt charts to ensure timely project completion."
+      ],
+      video: "https://docs.google.com/document/d/1OwoNglilbXwctBxkDsuat2hJ3M1clcUoNBqKHbKiIOU/edit?usp=sharing" 
+    },
+    {
+      title: "Veginations Food Delivery Platform",
+      role: "Software Developer",
+      timeline: "Dec 2023 – Mar 2024",
+      association: "Delhi Public School Surat",
+      category: "Web",
+      tags: ["Python", "SQL", "MySQL", "Relational Database"],
+      imageSrc: veginationsImg, // <-- Linked here
+      description: "Developed a consumer-facing food delivery platform using Python and SQL with secure user authentication and dynamic menu management functionality.",
+      bullets: [
+        "Designed and optimized SQL database queries, improving system performance and reducing load times by 30%.",
+        "Implemented a Python-based \"Lucky Draw\" feature to enhance user engagement and platform interaction.",
+        "Integrated backend logic with database operations to ensure efficient data handling and seamless user experience."
+      ]
+    }
+  ];
 
   const filteredProjects = projectsData.filter(project => 
     activeFilter === 'All' ? true : project.category === activeFilter
@@ -134,26 +140,20 @@ export default function Projects() {
             className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-glass flex flex-col hover:shadow-lg transition-shadow duration-300"
           >
             {/* Project Image Area */}
-            <div className="h-56 bg-slate-100 relative flex flex-col items-center justify-center overflow-hidden border-b border-slate-100">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-50 to-emerald-50 opacity-60" />
-              
+            <div className="h-56 bg-slate-50 relative overflow-hidden border-b border-slate-100 flex items-center justify-center">
               {project.hasMultipleImages ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                <div className="w-full h-full relative">
                   <AnimatePresence mode="wait">
-                    <motion.div
+                    <motion.img
                       key={ev3View}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
+                      src={ev3View === 'side' ? ev3SideImg : ev3TopImg}
+                      alt={`${project.title} - ${ev3View} view`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="text-center z-10"
-                    >
-                      <FiCamera className="mx-auto text-slate-400 mb-2" size={24} />
-                      <span className="text-sm font-bold text-slate-700 block font-display tracking-wide uppercase">
-                        EV3 Robotic Car ({ev3View === 'side' ? 'Side View' : 'Top View'})
-                      </span>
-                      <span className="text-xs text-slate-400 block mt-1">Placeholder for physical build capture</span>
-                    </motion.div>
+                      className="w-full h-full object-cover"
+                    />
                   </AnimatePresence>
 
                   {/* EV3 Image Toggle Controls */}
@@ -177,11 +177,19 @@ export default function Projects() {
                   </div>
                 </div>
               ) : (
-                <div className="text-center z-10">
-                  <span className="text-sm font-semibold text-slate-400 font-display tracking-wider uppercase">
-                    {project.title} Asset Slot
-                  </span>
-                </div>
+                project.imageSrc ? (
+                  <img 
+                    src={project.imageSrc} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="text-center p-4">
+                    <span className="text-sm font-semibold text-slate-400 font-display tracking-wider uppercase">
+                      {project.title} Asset Slot
+                    </span>
+                  </div>
+                )
               )}
             </div>
 
