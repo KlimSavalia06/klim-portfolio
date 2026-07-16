@@ -1,9 +1,9 @@
 import { FiArrowRight, FiDownload, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 export function Hero() {
-  // Smooth scroll handler
+  // Smooth scroll handler for the projects section
   const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault(); // Prevents instant harsh jump or page reload
+    e.preventDefault();
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -12,28 +12,29 @@ export function Hero() {
 
   return (
     <section className="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 relative z-10 font-body">
-   
-      <div className="inline-flex items-center gap-2 bg-[#e6f4ea] text-emerald-800 px-4 py-1.5 rounded-full text-xs font-semibold mb-8 border border-emerald-100 shadow-sm">
-        
-        Computer Science Junior at Arizona State University
-      </div>
-
-      {/* Main Headline */}
-      <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 font-display tracking-tight max-w-4xl leading-none mb-6">
+      
+      {/* 1. Main Headline - Decreased font size from 7xl down to 6xl */}
+      <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 font-display tracking-tight max-w-4xl leading-tight mb-4">
         Hi, I'm <span className="text-indigo-600">Klim Savalia</span>
       </h1>
 
-      {/* Sub-headline */}
-      <p className="text-lg md:text-xl text-slate-600 max-w-2xl mb-10 leading-relaxed">
-        Passionate about building innovative technology that makes a difference.
-        I enjoy creating software that blends creativity, problem-solving, and intuitive user experiences.
-        My interests include software engineering, AR/VR, emerging technologies, and interactive computing.
-        I'm always eager to learn, collaborate, and transform ideas into impactful solutions.
+      {/* 2. Badge - Moved below the name and changed to a soft Blue theme color */}
+      <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 px-4 py-1.5 rounded-full text-xs font-semibold mb-8 border border-blue-100 shadow-sm">
+        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+        Computer Science Junior at Arizona State University
+      </div>
+
+      {/* 3. Sub-headline (Your updated bio text) */}
+      <p className="text-lg md:text-xl text-slate-600 max-w-3xl mb-10 leading-relaxed">
+        Passionate about building innovative technology that makes a difference. I enjoy 
+        creating software that blends creativity, problem-solving, and intuitive user 
+        experiences. My interests include software engineering, AR/VR, emerging 
+        technologies, and interactive computing. I'm always eager to learn, collaborate, 
+        and transform ideas into impactful solutions.
       </p>
 
-      {/* Call to Actions */}
+      {/* 4. Call to Actions */}
       <div className="flex flex-col sm:flex-row gap-4 mb-12">
-        {/* VIEW PROJECTS BUTTON WITH SMOOTH SCROLL */}
         <a 
           href="#projects" 
           onClick={handleScrollToProjects}
@@ -51,7 +52,7 @@ export function Hero() {
         </a>
       </div>
 
-      {/* Social Icons */}
+      {/* 5. Social Links */}
       <div className="flex gap-6 text-slate-400">
         <a 
           href="https://github.com/KlimSavalia06" 

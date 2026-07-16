@@ -12,30 +12,31 @@ interface Project {
   tags: string[];
   category: 'Web' | 'AR/VR' | 'Robotics';
   imageKey: string; 
-  hasMultipleImages?: boolean; // For our EV3 interactive side/top view toggle!
-  github?: string;  // Optional: Will only show if you provide it!
-  demo?: string;   // Optional: Live website links
-  video?: string;  // Optional: Google Drive gameplay/demo links
-  docs?: string;   // Optional: Google Docs documentation links
+  hasMultipleImages?: boolean; 
+  github?: string;  
+  demo?: string;   
+  video?: string;  
+  docs?: string;   
 }
 
 const projectsData: Project[] = [
   {
     title: "20Twenty7.8 Dessert Studio",
-    role: "Software Developer (Client Project)",
+    role: "Software Developer",
     timeline: "July 2026 – Present",
-    association: "Client Project",
+    association: "Client Project (In Progress)",
     category: "Web",
-    tags: ["React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    tags: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel", "Git/GitHub"],
     imageKey: "bakery",
-    description: "Developing a production-ready, full-stack e-commerce platform for a real small-business client[cite: 1].",
+    description: "Full-stack web application built for a local bakery.",
     bullets: [
-      "Developing a full-stack e-commerce platform including product catalog browsing, shopping cart, and secure online ordering[cite: 1].",
-      "Designing and integrating a PostgreSQL database with Supabase to manage products and customer accounts[cite: 1].",
-      "Developing an admin dashboard for inventory management, reducing manual order processing[cite: 1]."
+      "Developing a production-ready, full-stack e-commerce platform for a real small-business client, including product catalog browsing, shopping cart, and secure online ordering.",
+      "Designing and integrating a PostgreSQL database with Supabase to manage products, customer accounts, and online orders.",
+      "Developing an admin dashboard for inventory management, pricing updates, and customer order tracking, reducing manual order processing.",
+      "Designed reusable, responsive React components with TypeScript and Tailwind CSS for a scalable, mobile-friendly interface."
     ],
-    github: "https://github.com/KlimSavalia06", // Only your bakery has GitHub!
-    demo: "https://your-bakery-demo-link.vercel.app" // Put your deployed live link here later!
+    github: "https://github.com/KlimSavalia06", 
+    demo: "https://your-bakery-demo-link.vercel.app" 
   },
   {
     title: "FSE AR/VR Tour",
@@ -51,8 +52,7 @@ const projectsData: Project[] = [
       "Built and tested software prototypes through iterative feedback from faculty and users, strengthening problem-solving and product development skills.",
       "Collaborated with cross-functional student and faculty teams to deliver scalable and innovative educational technology solutions."
     ],
-    video: "https://docs.google.com/document/d/11gB6cT-rg-Dh4YTQlk2T60lqe9LXNHtOPheHChNaDi0/edit?usp=sharing", // Paste Google Drive Video Link here!
-    
+    video: "https://docs.google.com/document/d/11gB6cT-rg-Dh4YTQlk2T60lqe9LXNHtOPheHChNaDi0/edit?usp=sharing", 
   },
   {
     title: "Autonomous EV3 Robotic Car",
@@ -62,14 +62,14 @@ const projectsData: Project[] = [
     category: "Robotics",
     tags: ["MATLAB", "Robotics", "LEGO EV3 Mindstorms", "Algorithms"],
     imageKey: "robotic-car",
-    hasMultipleImages: true, // This enables the interactive Side/Top View buttons!
+    hasMultipleImages: true, 
     description: "Led the development of a sensor-driven autonomous robotic vehicle using LEGO EV3, enabling object detection and autonomous navigation capabilities.",
     bullets: [
       "Programmed control algorithms in MATLAB to process sensor data and execute real-time movement and lifting operations.",
       "Designed and tested system logic to ensure reliable vehicle performance under project constraints and operational requirements.",
       "Coordinated project planning and team collaboration using structured documentation and Gantt charts to ensure timely project completion."
     ],
-    video: "https://docs.google.com/document/d/1OwoNglilbXwctBxkDsuat2hJ3M1clcUoNBqKHbKiIOU/edit?usp=sharing" // Paste Google Drive Video Link here!
+    video: "https://docs.google.com/document/d/1OwoNglilbXwctBxkDsuat2hJ3M1clcUoNBqKHbKiIOU/edit?usp=sharing" 
   },
   {
     title: "Veginations Food Delivery Platform",
