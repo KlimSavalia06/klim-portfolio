@@ -46,8 +46,8 @@ export default function Projects() {
         "Developing an admin dashboard for inventory management, pricing updates, and customer order tracking, reducing manual order processing.",
         "Designed reusable, responsive React components with TypeScript and Tailwind CSS for a scalable, mobile-friendly interface."
       ],
-      github: "https://github.com/KlimSavalia06", 
-      demo: "https://your-bakery-demo-link.vercel.app" 
+      github: "https://github.com/KlimSavalia06/twenty78dessertstudio", 
+      demo: "https://twenty78dessertstudio.lovable.app" 
     },
     {
       title: "FSE AR/VR Tour",
