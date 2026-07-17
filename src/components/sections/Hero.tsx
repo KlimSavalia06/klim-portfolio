@@ -30,7 +30,7 @@ export function Hero() {
         creating software that blends creativity, problem-solving, and intuitive user 
         experiences. My interests include software engineering, AR/VR, emerging 
         technologies, and interactive computing. I'm always eager to learn, collaborate, 
-        and transform ideas into impactful solutions.
+        and transform ideas into impactful solutions. The fact that this portfolio was made from scatch without using AI.
       </p>
 
       {/* 4. Call to Actions */}
